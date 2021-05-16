@@ -23,6 +23,14 @@
         <property name = "hibernate.connection.password">
             hibernate
         </property>
+        
+        <property name="hibernate.show_sql">
+            true
+        </property>
+        
+        <property name="hibernate.format_sql">
+            true
+        </property>
 
         <!-- Temporary -->
 

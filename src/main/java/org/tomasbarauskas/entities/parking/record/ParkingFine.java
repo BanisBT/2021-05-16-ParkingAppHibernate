@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDateTime;
 
-public class ParkingFine {
+public class ParkingFine extends ParkingRecord{
     private LocalDateTime fineDateTime = LocalDateTime.now();
     private BigDecimal amount = new BigDecimal(BigInteger.ZERO);
     private LocalDateTime createdAt;
