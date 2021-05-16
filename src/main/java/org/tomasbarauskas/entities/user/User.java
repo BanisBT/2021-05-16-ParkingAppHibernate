@@ -44,18 +44,18 @@ public class User {
     @Column(name = "user_role")
     private UserRole role = UserRole.REGULAR;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user")
     private List<ParkingTicket> tickets;
 
     public User() {
     }
 
-    public List<ParkingTicket> getTickets() {
-        return tickets;
-    }
-
-    public void setTickets(List<ParkingTicket> tickets) {
-        this.tickets = tickets;
+    public User(String userId, String password, String name, String surname, String carNumber) {
+        this.userId = userId;
+        this.password = password;
+        this.name = name;
+        this.surname = surname;
+        this.carNumber = carNumber;
     }
 
     public Long getId() {

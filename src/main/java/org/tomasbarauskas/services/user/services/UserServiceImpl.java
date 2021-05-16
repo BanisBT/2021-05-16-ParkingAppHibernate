@@ -50,4 +50,20 @@ public class UserServiceImpl implements UserService {
             session.close();
         }
     }
+
+    @Override
+    public void deleteUser(User user) {
+        Session session = HibernateConfiguration.openSession();
+        Transaction transaction = session.beginTransaction();
+
+        try {
+            session.delete(user);
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            transaction.rollback();
+        } finally {
+            session.close();
+        }
+    }
 }

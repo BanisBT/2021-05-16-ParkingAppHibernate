@@ -18,8 +18,8 @@ public abstract class ParkingRecord {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "parking_zone_id")
+    @ManyToOne()
+    @JoinColumn(name = "parking_zone_id")
     private ParkingZone parkingZone;
 
     @Enumerated(EnumType.STRING)
