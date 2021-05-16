@@ -1,15 +1,44 @@
 package org.tomasbarauskas.entities.parking.record;
 
+import org.tomasbarauskas.entities.parking.ParkingCityName;
 import org.tomasbarauskas.entities.parking.zone.ParkingZone;
 import org.tomasbarauskas.entities.user.User;
 
+import javax.persistence.*;
+
+@MappedSuperclass
 public abstract class ParkingRecord {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "parking_zone_id")
     private ParkingZone parkingZone;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "parking_city")
+    private ParkingCityName cityName;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "parking_status")
     private ParkingRecordStatus recordStatus = ParkingRecordStatus.UNPAID;
 
     public ParkingRecord() {
+    }
+
+    public ParkingCityName getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(ParkingCityName cityName) {
+        this.cityName = cityName;
     }
 
     public Long getId() {

@@ -1,8 +1,11 @@
 package org.tomasbarauskas.entities.user;
 
+import org.tomasbarauskas.entities.parking.record.ParkingTicket;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "usertable")
@@ -41,7 +44,18 @@ public class User {
     @Column(name = "user_role")
     private UserRole role = UserRole.REGULAR;
 
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private List<ParkingTicket> tickets;
+
     public User() {
+    }
+
+    public List<ParkingTicket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(List<ParkingTicket> tickets) {
+        this.tickets = tickets;
     }
 
     public Long getId() {

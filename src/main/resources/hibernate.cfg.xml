@@ -37,6 +37,13 @@
         <!-- List of XML mapping files -->
         <mapping class="org.tomasbarauskas.entities.user.UserRole" />
         <mapping class="org.tomasbarauskas.entities.user.User" />
+        <mapping class="org.tomasbarauskas.entities.parking.ParkingCityName" />
+        <mapping class="org.tomasbarauskas.entities.parking.zone.ParkingZoneName" />
+        <mapping class="org.tomasbarauskas.entities.parking.zone.ParkingZone" />
+        <mapping class="org.tomasbarauskas.entities.parking.record.ParkingRecordStatus" />
+        <mapping class="org.tomasbarauskas.entities.parking.record.ParkingRecord" />
+        <mapping class="org.tomasbarauskas.entities.parking.record.ParkingTicket" />
+        <mapping class="org.tomasbarauskas.entities.parking.record.ParkingFine" />
 
     </session-factory>
 </hibernate-configuration>
