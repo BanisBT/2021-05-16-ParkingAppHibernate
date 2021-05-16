@@ -27,6 +27,8 @@
         <!-- Temporary -->
 
         <!-- List of XML mapping files -->
+        <mapping class="org.tomasbarauskas.entities.user.UserRole" />
+        <mapping class="org.tomasbarauskas.entities.user.User" />
 
     </session-factory>
 </hibernate-configuration>

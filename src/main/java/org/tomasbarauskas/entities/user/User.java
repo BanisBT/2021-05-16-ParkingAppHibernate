@@ -1,18 +1,43 @@
 package org.tomasbarauskas.entities.user;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "usertable")
 public class User {
+
+    @Id
+
     private Long id;
+
+    @Column(name = "user_id")
     private String userId;
+
+    @Column(name = "user_password")
     private String password;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "surname")
     private String surname;
+
+    @Column(name = "car_number")
     private String carNumber;
+
+    @Column(name = "user_balance")
     private BigDecimal balance;
+
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
+
+    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "user_role")
     private UserRole role = UserRole.REGULAR;
 
     public User() {
