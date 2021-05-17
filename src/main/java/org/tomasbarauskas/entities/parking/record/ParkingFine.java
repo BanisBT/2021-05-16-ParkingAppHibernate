@@ -23,13 +23,16 @@ import java.time.LocalDateTime;
 public class ParkingFine extends ParkingRecord {
 
     @Column(name = "fine_date_time")
+    @Builder.Default
     private LocalDateTime fineDateTime = LocalDateTime.now();
 
     @Column(name = "amount_fine")
+    @Builder.Default
     private BigDecimal amount = new BigDecimal(BigInteger.ZERO);
 
     @Column(name = "created_at")
-    private LocalDateTime createdAt;
+    @Builder.Default
+    private LocalDateTime createdAt = LocalDateTime.now();
 
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
