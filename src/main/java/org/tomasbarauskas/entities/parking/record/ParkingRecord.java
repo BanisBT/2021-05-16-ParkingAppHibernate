@@ -15,7 +15,7 @@ public abstract class ParkingRecord {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "usertable_id")
     private User user;
 
     @ManyToOne()
@@ -31,6 +31,10 @@ public abstract class ParkingRecord {
     private ParkingRecordStatus recordStatus = ParkingRecordStatus.UNPAID;
 
     public ParkingRecord() {
+    }
+
+    public ParkingRecord(User user) {
+        this.user = user;
     }
 
     public ParkingCityName getCityName() {

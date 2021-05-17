@@ -1,14 +1,21 @@
 package org.tomasbarauskas.entities.user;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import org.tomasbarauskas.entities.parking.record.ParkingTicket;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "usertable")
+@Getter
+@Setter
+@ToString
 public class User {
 
     @Id
@@ -58,99 +65,44 @@ public class User {
         this.carNumber = carNumber;
     }
 
-    public Long getId() {
-        return id;
-    }
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
+//
+//    public void setUserId(String userId) {
+//        this.userId = userId;
+//    }
+//
+//    public void setPassword(String password) {
+//        this.password = password;
+//    }
+//
+//    public void setName(String name) {
+//        this.name = name;
+//    }
+//
+//    public void setSurname(String surname) {
+//        this.surname = surname;
+//    }
+//
+//    public void setCarNumber(String carNumber) {
+//        this.carNumber = carNumber;
+//    }
+//
+//    public void setBalance(BigDecimal balance) {
+//        this.balance = balance;
+//    }
+//
+//    public void setCreatedAt(LocalDateTime createdAt) {
+//        this.createdAt = createdAt;
+//    }
+//
+//    public void setUpdatedAt(LocalDateTime updatedAt) {
+//        this.updatedAt = updatedAt;
+//    }
+//
+//    public void setRole(UserRole role) {
+//        this.role = role;
+//    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public String getCarNumber() {
-        return carNumber;
-    }
-
-    public void setCarNumber(String carNumber) {
-        this.carNumber = carNumber;
-    }
-
-    public BigDecimal getBalance() {
-        return balance;
-    }
-
-    public void setBalance(BigDecimal balance) {
-        this.balance = balance;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public UserRole getRole() {
-        return role;
-    }
-
-    public void setRole(UserRole role) {
-        this.role = role;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", userId='" + userId + '\'' +
-                ", password='" + password + '\'' +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", carNumber='" + carNumber + '\'' +
-                ", balance=" + balance +
-                ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
-                ", role=" + role +
-                '}';
-    }
 }

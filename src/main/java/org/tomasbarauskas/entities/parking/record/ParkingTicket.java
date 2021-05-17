@@ -1,5 +1,7 @@
 package org.tomasbarauskas.entities.parking.record;
 
+import org.tomasbarauskas.entities.user.User;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -27,6 +29,10 @@ public class ParkingTicket extends ParkingRecord{
     private LocalDateTime updateAt;
 
     public ParkingTicket() {
+    }
+
+    public ParkingTicket(User user) {
+        super(user);
     }
 
     public LocalDateTime getBeganParking() {

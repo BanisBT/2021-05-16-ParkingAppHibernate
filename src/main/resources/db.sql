@@ -10,7 +10,8 @@ CREATE TABLE public.usertable
     created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
     updated_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
     user_role character varying(22) COLLATE pg_catalog."default",
-    CONSTRAINT usertable_pkey PRIMARY KEY (id)
+    CONSTRAINT usertable_pkey PRIMARY KEY (id),
+    CONSTRAINT user_id_unique UNIQUE (user_id)
 )
 
 TABLESPACE pg_default;
@@ -53,7 +54,17 @@ CREATE TABLE public.parking_ticket
     amount_ticket double precision NOT NULL,
     created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
     updated_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT parking_ticket_pkey PRIMARY KEY (id)
+    CONSTRAINT parking_ticket_pkey PRIMARY KEY (id),
+    CONSTRAINT parking_ticket_id_fkey_parking_zone_id FOREIGN KEY (parking_zone_id)
+            REFERENCES public.parking_zone (id) MATCH SIMPLE
+            ON UPDATE NO ACTION
+            ON DELETE NO ACTION
+            NOT VALID,
+        CONSTRAINT parking_ticket_id_fkey_user_id FOREIGN KEY (usertable_id)
+            REFERENCES public.usertable (id) MATCH SIMPLE
+            ON UPDATE NO ACTION
+            ON DELETE NO ACTION
+            NOT VALID
 )
 
 TABLESPACE pg_default;
@@ -76,7 +87,18 @@ CREATE TABLE public.parking_fine
     amount_fine double precision NOT NULL,
     created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
     updated_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT parking_fine_pkey PRIMARY KEY (id)
+    CONSTRAINT parking_fine_pkey PRIMARY KEY (id),
+    CONSTRAINT fine_id_fkey_usertable_id FOREIGN KEY (usertable_id)
+            REFERENCES public.usertable (id) MATCH SIMPLE
+            ON UPDATE NO ACTION
+            ON DELETE NO ACTION
+            NOT VALID,
+        CONSTRAINT parking_fine_id_fkey_parking_zone_id FOREIGN KEY (parking_zone_id)
+            REFERENCES public.parking_zone (id) MATCH SIMPLE
+            ON UPDATE NO ACTION
+            ON DELETE NO ACTION
+            NOT VALID
+
 )
 
 TABLESPACE pg_default;
