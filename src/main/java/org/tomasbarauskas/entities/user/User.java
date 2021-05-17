@@ -39,12 +39,15 @@ public class User {
     private String surname;
 
     @Column(name = "car_number")
+    @Builder.Default
     private String carNumber = "Temp";
 
     @Column(name = "user_balance")
+    @Builder.Default
     private BigDecimal balance = new BigDecimal(BigInteger.ZERO);
 
     @Column(name = "created_at")
+    @Builder.Default
     private LocalDateTime createdAt = LocalDateTime.now();
 
     @Column(name = "updated_at")
@@ -52,6 +55,7 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "user_role")
+    @Builder.Default
     private UserRole role = UserRole.REGULAR;
 
     @OneToMany(mappedBy = "user")

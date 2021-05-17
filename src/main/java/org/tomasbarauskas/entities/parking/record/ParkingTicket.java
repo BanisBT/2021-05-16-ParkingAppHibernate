@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 import lombok.experimental.Tolerate;
 
 import javax.persistence.Column;
@@ -15,26 +16,31 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "parking_ticket")
-@Builder
+@SuperBuilder
 @Getter
 @Setter
 @ToString
 public class ParkingTicket extends ParkingRecord {
 
     @Column(name = "began_parking")
+    @Builder.Default
     private LocalDateTime beganParking = LocalDateTime.now();
 
     @Column(name = "end_parking")
+    @Builder.Default
     private LocalDateTime endParking = LocalDateTime.now().plusHours(2);
 
     @Column(name = "amount_ticket")
+    @Builder.Default
     private BigDecimal amount = new BigDecimal(BigInteger.ZERO);
 
     @Column(name = "created_at")
-    private LocalDateTime createdAt;
+    @Builder.Default
+    private LocalDateTime createdAt = LocalDateTime.now();
 
     @Column(name = "updated_at")
-    private LocalDateTime updateAt;
+    @Builder.Default
+    private LocalDateTime updateAt = LocalDateTime.now();
 
     @Tolerate
     public ParkingTicket() {

@@ -2,9 +2,11 @@ package org.tomasbarauskas.services.parking.records.services;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.tomasbarauskas.entities.parking.ParkingCityName;
 import org.tomasbarauskas.entities.parking.record.ParkingTicket;
-import org.tomasbarauskas.services.parking.records.services.ParkingTicketService;
 import org.tomasbarauskas.utilities.HibernateConfiguration;
+
+import java.util.List;
 
 public class ParkingTicketServiceImp implements ParkingTicketService {
 
@@ -40,5 +42,15 @@ public class ParkingTicketServiceImp implements ParkingTicketService {
         } finally {
             session.close();
         }
+    }
+
+    @Override
+    public List<ParkingTicket> getTicketsByParkingCityName(ParkingCityName cityName) {
+        return null;
+    }
+
+    @Override
+    public void deleteParkingTicket(ParkingTicket ticket) {
+
     }
 }
