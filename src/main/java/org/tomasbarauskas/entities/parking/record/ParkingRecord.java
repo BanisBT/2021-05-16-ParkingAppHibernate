@@ -1,5 +1,10 @@
 package org.tomasbarauskas.entities.parking.record;
 
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.Tolerate;
 import org.tomasbarauskas.entities.parking.ParkingCityName;
 import org.tomasbarauskas.entities.parking.zone.ParkingZone;
 import org.tomasbarauskas.entities.user.User;
@@ -7,6 +12,10 @@ import org.tomasbarauskas.entities.user.User;
 import javax.persistence.*;
 
 @MappedSuperclass
+@Builder
+@Getter
+@Setter
+@ToString
 public abstract class ParkingRecord {
 
     @Id
@@ -30,60 +39,7 @@ public abstract class ParkingRecord {
     @Column(name = "parking_status")
     private ParkingRecordStatus recordStatus = ParkingRecordStatus.UNPAID;
 
+    @Tolerate
     public ParkingRecord() {
-    }
-
-    public ParkingRecord(User user) {
-        this.user = user;
-    }
-
-    public ParkingCityName getCityName() {
-        return cityName;
-    }
-
-    public void setCityName(ParkingCityName cityName) {
-        this.cityName = cityName;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public ParkingZone getParkingZone() {
-        return parkingZone;
-    }
-
-    public void setParkingZone(ParkingZone parkingZone) {
-        this.parkingZone = parkingZone;
-    }
-
-    public ParkingRecordStatus getRecordStatus() {
-        return recordStatus;
-    }
-
-    public void setRecordStatus(ParkingRecordStatus recordStatus) {
-        this.recordStatus = recordStatus;
-    }
-
-    @Override
-    public String toString() {
-        return "ParkingRecord{" +
-                "id=" + id +
-                ", user=" + user +
-                ", parkingZone=" + parkingZone +
-                ", recordStatus=" + recordStatus +
-                '}';
     }
 }

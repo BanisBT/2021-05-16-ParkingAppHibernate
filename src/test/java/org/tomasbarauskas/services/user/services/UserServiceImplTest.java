@@ -10,8 +10,12 @@ import org.tomasbarauskas.utilities.HibernateConfiguration;
 class UserServiceImplTest {
 
     private final UserService userService = new UserServiceImpl();
-    private final User testUser = new User("Test", "Test", "TestName", "TestSurname",
-            "Test 999");
+    private final User testUser = User.builder()
+            .userId("Test")
+            .password("Test")
+            .name("TestName")
+            .surname("TestSurname")
+            .build();
 
     @BeforeAll
     static void beforeAll() {

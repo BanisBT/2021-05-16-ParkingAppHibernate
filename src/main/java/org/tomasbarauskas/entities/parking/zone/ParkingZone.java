@@ -1,11 +1,21 @@
 package org.tomasbarauskas.entities.parking.zone;
 
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.Tolerate;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
 @Entity
 @Table(name = "parking_zone")
+@Builder
+@Setter
+@Getter
+@ToString
 public class ParkingZone {
 
     @Id
@@ -23,48 +33,7 @@ public class ParkingZone {
     @Column(name = "fine")
     private BigDecimal fine = new BigDecimal(BigInteger.ZERO);
 
+    @Tolerate
     public ParkingZone() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public ParkingZoneName getZoneName() {
-        return zoneName;
-    }
-
-    public void setZoneName(ParkingZoneName zoneName) {
-        this.zoneName = zoneName;
-    }
-
-    public BigDecimal getPricePerHour() {
-        return pricePerHour;
-    }
-
-    public void setPricePerHour(BigDecimal pricePerHour) {
-        this.pricePerHour = pricePerHour;
-    }
-
-    public BigDecimal getFine() {
-        return fine;
-    }
-
-    public void setFine(BigDecimal fine) {
-        this.fine = fine;
-    }
-
-    @Override
-    public String toString() {
-        return "ParkingZone{" +
-                "id=" + id +
-                ", zoneName=" + zoneName +
-                ", pricePerHour=" + pricePerHour +
-                ", fine=" + fine +
-                '}';
     }
 }

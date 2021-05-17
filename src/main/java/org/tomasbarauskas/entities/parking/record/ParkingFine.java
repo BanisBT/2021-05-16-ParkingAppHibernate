@@ -1,5 +1,11 @@
 package org.tomasbarauskas.entities.parking.record;
 
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.Tolerate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -9,6 +15,10 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "parking_fine")
+@Builder
+@Getter
+@Setter
+@ToString
 public class ParkingFine extends ParkingRecord{
 
     @Column(name = "fine_date_time")
@@ -23,48 +33,7 @@ public class ParkingFine extends ParkingRecord{
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
+    @Tolerate
     public ParkingFine() {
-    }
-
-    public LocalDateTime getFineDateTime() {
-        return fineDateTime;
-    }
-
-    public void setFineDateTime(LocalDateTime fineDateTime) {
-        this.fineDateTime = fineDateTime;
-    }
-
-    public BigDecimal getAmount() {
-        return amount;
-    }
-
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    @Override
-    public String toString() {
-        return "ParkingFine{" +
-                "fineDateTime=" + fineDateTime +
-                ", amount=" + amount +
-                ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
-                '}';
     }
 }
