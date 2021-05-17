@@ -30,7 +30,8 @@ CREATE TABLE public.parking_zone
     zone_name character varying(50) COLLATE pg_catalog."default" NOT NULL,
     cost_per_hour double precision NOT NULL,
     fine double precision NOT NULL,
-    CONSTRAINT parking_zone_pkey PRIMARY KEY (id)
+    CONSTRAINT parking_zone_pkey PRIMARY KEY (id),
+    CONSTRAINT parking_zone_name_unique UNIQUE (zone_name)
 )
 
 TABLESPACE pg_default;

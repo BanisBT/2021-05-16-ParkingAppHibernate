@@ -1,6 +1,5 @@
 package org.tomasbarauskas.entities.parking.record;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -12,7 +11,6 @@ import org.tomasbarauskas.entities.user.User;
 import javax.persistence.*;
 
 @MappedSuperclass
-@Builder
 @Getter
 @Setter
 @ToString

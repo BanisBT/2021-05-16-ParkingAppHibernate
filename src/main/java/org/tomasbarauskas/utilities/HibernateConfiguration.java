@@ -10,14 +10,15 @@ public class HibernateConfiguration {
 
     private static SessionFactory sessionFactory;
 
-    public static Session openSession(){
+    public static Session openSession() {
         return sessionFactory.openSession();
     }
 
-    public static void buildSessionFactory(){
+    public static void buildSessionFactory() {
         sessionFactory = configuration.buildSessionFactory();
     }
-    public static void closeSessionFactory(){
+
+    public static void closeSessionFactory() {
         sessionFactory.close();
     }
 }

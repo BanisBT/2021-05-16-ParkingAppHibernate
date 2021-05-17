@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Tolerate;
-import org.tomasbarauskas.entities.user.User;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,7 +19,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @ToString
-public class ParkingTicket extends ParkingRecord{
+public class ParkingTicket extends ParkingRecord {
 
     @Column(name = "began_parking")
     private LocalDateTime beganParking = LocalDateTime.now();

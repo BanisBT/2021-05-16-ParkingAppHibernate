@@ -1,59 +1,21 @@
-package org.tomasbarauskas.services.user.services;
+package org.tomasbarauskas.services.parking.zones.services;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
-import org.tomasbarauskas.entities.user.User;
+import org.tomasbarauskas.entities.parking.zone.ParkingZone;
+import org.tomasbarauskas.entities.parking.zone.ParkingZoneName;
 import org.tomasbarauskas.utilities.HibernateConfiguration;
 
-public class UserServiceImpl implements UserService {
+public class ParkingZoneServiceImpl implements ParkingZoneService {
 
     @Override
-    public User getUserById(Long id) {
-        Session session = HibernateConfiguration.openSession();
-        Transaction transaction = session.beginTransaction();
-        User user = null;
-
-        try {
-            user = session.get(User.class, id);
-            transaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            transaction.rollback();
-        } finally {
-            session.close();
-        }
-        return user;
-    }
-
-    @Override
-    public User getUserByUserId(String userId) {
-        Session session = HibernateConfiguration.openSession();
-        Transaction transaction = session.beginTransaction();
-        User user = null;
-
-        try {
-            Query query = session.createQuery("FROM User WHERE userId = :userId", User.class);
-            query.setParameter("userId", userId);
-            user = (User) query.getSingleResult();
-            transaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            transaction.rollback();
-        } finally {
-            session.close();
-        }
-
-        return user;
-    }
-
-    @Override
-    public void saveOrUpdate(User user) {
+    public void saveOrUpdate(ParkingZone zone) {
         Session session = HibernateConfiguration.openSession();
         Transaction transaction = session.beginTransaction();
 
         try {
-            session.saveOrUpdate(user);
+            session.saveOrUpdate(zone);
             transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -64,12 +26,33 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteUser(User user) {
+    public ParkingZone getZoneByName(ParkingZoneName zoneName) {
+        Session session = HibernateConfiguration.openSession();
+        Transaction transaction = session.beginTransaction();
+        ParkingZone parkingZone = null;
+
+        try {
+            Query query = session.createQuery("FROM ParkingZone WHERE zoneName = :zoneName", ParkingZone.class);
+            query.setParameter("zoneName", zoneName);
+            parkingZone = (ParkingZone) query.getSingleResult();
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            transaction.rollback();
+        } finally {
+            session.close();
+        }
+
+        return parkingZone;
+    }
+
+    @Override
+    public void deleteZone(ParkingZone zone) {
         Session session = HibernateConfiguration.openSession();
         Transaction transaction = session.beginTransaction();
 
         try {
-            session.delete(user);
+            session.delete(zone);
             transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();

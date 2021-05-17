@@ -1,4 +1,4 @@
-package org.tomasbarauskas.services.parking.services;
+package org.tomasbarauskas.services.parking.records.services;
 
 import org.tomasbarauskas.entities.parking.record.ParkingTicket;
 

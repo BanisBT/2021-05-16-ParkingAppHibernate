@@ -23,7 +23,7 @@ public class ParkingZone {
     @Column(name = "id")
     private Long id;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     @Column(name = "zone_name")
     private ParkingZoneName zoneName;
 

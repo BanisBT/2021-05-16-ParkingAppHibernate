@@ -1,11 +1,12 @@
-package org.tomasbarauskas.services.parking.services;
+package org.tomasbarauskas.services.parking.records.services;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.tomasbarauskas.entities.parking.record.ParkingTicket;
+import org.tomasbarauskas.services.parking.records.services.ParkingTicketService;
 import org.tomasbarauskas.utilities.HibernateConfiguration;
 
-public class ParkingTicketServiceImp implements ParkingTicketService{
+public class ParkingTicketServiceImp implements ParkingTicketService {
 
     @Override
     public ParkingTicket getTicketById(Long id) {

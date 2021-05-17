@@ -9,5 +9,7 @@ public enum ParkingZoneName {
     KAUNAS_GREEN_ZONE,
     KLAIPEDA_BLUE_ZONE,
     KLAIPEDA_RED_ZONE,
-    NO_ZONE
+    NO_ZONE,
+    TEST_ZONE,
+    NOT_IN_DB_ZONE
 }

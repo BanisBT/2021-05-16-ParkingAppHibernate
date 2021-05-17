@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @ToString
-public class ParkingFine extends ParkingRecord{
+public class ParkingFine extends ParkingRecord {
 
     @Column(name = "fine_date_time")
     private LocalDateTime fineDateTime = LocalDateTime.now();

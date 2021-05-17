@@ -1,11 +1,15 @@
 package org.tomasbarauskas.entities.user;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.Tolerate;
 import org.tomasbarauskas.entities.parking.record.ParkingTicket;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -35,13 +39,13 @@ public class User {
     private String surname;
 
     @Column(name = "car_number")
-    private String carNumber;
+    private String carNumber = "Temp";
 
     @Column(name = "user_balance")
-    private BigDecimal balance;
+    private BigDecimal balance = new BigDecimal(BigInteger.ZERO);
 
     @Column(name = "created_at")
-    private LocalDateTime createdAt;
+    private LocalDateTime createdAt = LocalDateTime.now();
 
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
